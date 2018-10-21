@@ -1,0 +1,44 @@
+/*
+All pictures are from: https://www.pexels.com/
+*/
+
+.bodybg{
+    -fx-background-color: #222222;
+}
+ .text-field {
+     -fx-focus-color: #474646;
+     -fx-faint-focus-color: #47464622;
+ }
+
+.text-label {
+    -fx-effect: dropshadow(two-pass-box, #000, 1, 1, 1, 1);
+}
+
+.scroll-bar {
+    -fx-background-color: #555555;
+}
+
+.scroll-bar > .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar > .thumb {
+    -fx-background-color: #333333;
+}
+
+.scroll-bar:hover {
+    -fx-cursor: hand;
+}
+
+.scroll-bar > .increment-button, .decrement-button {
+    -fx-background-color: #333333;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar > .increment-button:hover, .decrement-button:hover {
+    -fx-background-color: #555555;
+}
+
+.scroll-bar > .increment-button > .increment-arrow, .decrement-button > .decrement-arrow {
+    -fx-background-color: #222222;
+}

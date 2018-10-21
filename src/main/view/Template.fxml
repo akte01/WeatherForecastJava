@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane id="GridPane" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0"
+          prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="main.view.TemplateController">
+    <columnConstraints>
+        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="501.6000122070312"/>
+        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="501.5999877929687"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="69.60000610351562" valignment="CENTER"
+                        vgrow="NEVER"/>
+        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="363.0" valignment="TOP"
+                        vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <VBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="484.0" style="-fx-background-color: #555555;">
+            <children>
+                <GridPane alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity"
+                                           prefWidth="60.0"/>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity"
+                                           minWidth="-Infinity" prefWidth="210.0"/>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity"
+                                           minWidth="-Infinity" prefWidth="60.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0"
+                                        vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="36.0"
+                                        vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                onAction="#loadDataForCurrentCity" style="-fx-background-color: #777777;-fx-cursor: hand;" text="OK"
+                                textFill="WHITE" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="DejaVu Sans Bold" size="10.0"/>
+                            </font>
+                        </Button>
+                        <TextField fx:id="currentCity" promptText="Miasto" styleClass="text-field"
+                                   stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
+                            <font>
+                                <Font name="DejaVu Sans" size="12.0"/>
+                            </font>
+                        </TextField>
+                        <Label text="Obecna lokalizacja:" textFill="WHITE" GridPane.columnIndex="1">
+                            <font>
+                                <Font name="DejaVu Sans" size="14.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+        <VBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="509.0" style="-fx-background-color: #555555;"
+              GridPane.columnIndex="1">
+            <children>
+                <GridPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity"
+                                           prefWidth="60.0"/>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity"
+                                           prefWidth="210.0"/>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity"
+                                           minWidth="-Infinity" prefWidth="60.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0"
+                                        vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="36.0"
+                                        vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#loadDataForTargetCity"
+                                style="-fx-background-color: #777777; -fx-cursor: hand;" text="OK" textFill="WHITE"
+                                GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="DejaVu Sans Bold" size="10.0"/>
+                            </font>
+                        </Button>
+                        <TextField fx:id="targetCity" promptText="Miasto" styleClass="text-field"
+                                   stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="DejaVu Sans" size="12.0"/>
+                            </font>
+                        </TextField>
+                        <Label text="Docelowa lokalizacja:" textFill="WHITE" GridPane.columnIndex="1">
+                            <font>
+                                <Font name="DejaVu Sans" size="14.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+        <ScrollPane fitToHeight="true" fitToWidth="true" opacity="0.8" styleClass="scroll-bar" stylesheets="@style.css"
+                    GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <content>
+                <GridPane fx:id="currentCityBackground" alignment="CENTER" prefHeight="432.0" prefWidth="486.0"
+                          styleClass="bodybg" stylesheets="@style.css">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="362.0" prefWidth="0.0">
+                            <children>
+                                <Label fx:id="currentCityName" styleClass="text-label" stylesheets="@style.css" text=""
+                                       textFill="WHITE">
+                                    <font>
+                                        <Font name="DejaVu Sans" size="20.0"/>
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="10.0"/>
+                                    </VBox.margin>
+                                </Label>
+                                <Label fx:id="currentDateForCurrentCity" styleClass="text-label"
+                                       stylesheets="@style.css" text="Wprowadź miasto, aby uzyskać dane pogodowe!"
+                                       textFill="WHITE">
+                                    <font>
+                                        <Font name="DejaVu Sans" size="16.0"/>
+                                    </font>
+                                </Label>
+                                <HBox alignment="CENTER" prefHeight="113.0" prefWidth="371.0" spacing="30.0">
+                                    <children>
+                                        <VBox prefHeight="113.0" prefWidth="214.0">
+                                            <children>
+                                                <Label alignment="TOP_CENTER" contentDisplay="CENTER"
+                                                       styleClass="text-label" stylesheets="@style.css" text="Teraz:"
+                                                       textFill="WHITE">
+                                                    <font>
+                                                        <Font name="DejaVu Sans" size="12.0"/>
+                                                    </font>
+                                                    <padding>
+                                                        <Insets left="2.0" top="15.0"/>
+                                                    </padding>
+                                                </Label>
+                                                <Label fx:id="currentTemperatureForCurrentCity" alignment="CENTER"
+                                                       contentDisplay="CENTER" styleClass="text-label"
+                                                       stylesheets="@style.css" text="" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="DejaVu Sans" size="46.0"/>
+                                                    </font>
+                                                    <padding>
+                                                        <Insets top="5.0"/>
+                                                    </padding>
+                                                </Label>
+                                                <Label fx:id="currentMinMaxTemperatureForCurrentCity"
+                                                       styleClass="text-label" stylesheets="@style.css" text=""
+                                                       textFill="WHITE">
+                                                    <font>
+                                                        <Font name="DejaVu Sans" size="12.0"/>
+                                                    </font>
+                                                    <padding>
+                                                        <Insets bottom="10.0" left="2.0" top="5.0"/>
+                                                    </padding>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox prefHeight="113.0" prefWidth="131.0">
+                                            <children>
+                                                <ImageView fx:id="currentIconForCurrentCity" fitHeight="94.0"
+                                                           fitWidth="82.0" nodeOrientation="RIGHT_TO_LEFT"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                    </image>
+                                                </ImageView>
+                                                <Label fx:id="currentHumidityForCurrentCity" styleClass="text-label"
+                                                       stylesheets="@style.css" text="" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="DejaVu Sans" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="currentPressureForCurrentCity" styleClass="text-label"
+                                                       stylesheets="@style.css" text="" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="DejaVu Sans" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="currentDayNextHoursDataForCurrentCity" alignment="CENTER_RIGHT"
+                                      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                                      minWidth="-Infinity" prefHeight="120.0" prefWidth="484.0" spacing="6.0">
+                                    <VBox.margin>
+                                        <Insets bottom="40.0"/>
+                                    </VBox.margin>
+                                </HBox>
+                                <Separator opacity="0.5" prefWidth="200.0"/>
+                            </children>
+                        </VBox>
+                        <GridPane fx:id="nextDaysDataForCurrentCity" alignment="CENTER" vgap="25.0"
+                                  GridPane.rowIndex="1">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308"
+                                                   minWidth="-Infinity" prefWidth="335.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <GridPane.margin>
+                                <Insets bottom="20.0" top="-45.0"/>
+                            </GridPane.margin>
+                        </GridPane>
+                    </children>
+                </GridPane>
+            </content>
+        </ScrollPane>
+        <ScrollPane fitToHeight="true" fitToWidth="true" opacity="0.8" styleClass="scroll-bar" stylesheets="@style.css"
+                    GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <content>
+                <GridPane fx:id="targetCityBackground" alignment="CENTER" styleClass="bodybg" stylesheets="@style.css">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="362.0" prefWidth="0.0">
+                            <children>
+                                <Label fx:id="targetCityName" styleClass="text-label" stylesheets="@style.css"
+                                       textFill="WHITE">
+                                    <font>
+                                        <Font name="DejaVu Sans" size="20.0"/>
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="10.0"/>
+                                    </VBox.margin>
+                                </Label>
+                                <Label fx:id="currentDateForTargetCity" styleClass="text-label" stylesheets="@style.css"
+                                       text="Wprowadź miasto, aby uzyskać dane pogodowe!" textFill="WHITE">
+                                    <font>
+                                        <Font name="DejaVu Sans" size="16.0"/>
+                                    </font>
+                                </Label>
+                                <HBox alignment="CENTER" prefHeight="113.0" prefWidth="371.0" spacing="30.0">
+                                    <children>
+                                        <VBox prefHeight="113.0" prefWidth="214.0">
+                                            <children>
+                                                <Label alignment="TOP_CENTER" contentDisplay="CENTER"
+                                                       styleClass="text-label" stylesheets="@style.css" text="Teraz:"
+                                                       textFill="WHITE">
+                                                    <font>
+                                                        <Font name="DejaVu Sans" size="12.0"/>
+                                                    </font>
+                                                    <padding>
+                                                        <Insets left="2.0" top="15.0"/>
+                                                    </padding>
+                                                </Label>
+                                                <Label fx:id="currentTemperatureForTargetCity" alignment="CENTER"
+                                                       contentDisplay="CENTER" styleClass="text-label"
+                                                       stylesheets="@style.css" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="DejaVu Sans" size="46.0"/>
+                                                    </font>
+                                                    <padding>
+                                                        <Insets top="5.0"/>
+                                                    </padding>
+                                                </Label>
+                                                <Label fx:id="currentMinMaxTemperatureForTargetCity"
+                                                       styleClass="text-label" stylesheets="@style.css"
+                                                       textFill="WHITE">
+                                                    <font>
+                                                        <Font name="DejaVu Sans" size="12.0"/>
+                                                    </font>
+                                                    <padding>
+                                                        <Insets bottom="10.0" left="2.0" top="5.0"/>
+                                                    </padding>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox prefHeight="113.0" prefWidth="131.0">
+                                            <children>
+                                                <ImageView fx:id="currentIconForTargetCity" fitHeight="94.0"
+                                                           fitWidth="82.0" nodeOrientation="RIGHT_TO_LEFT"
+                                                           pickOnBounds="true" preserveRatio="true"/>
+                                                <Label fx:id="currentHumidityForTargetCity" styleClass="text-label"
+                                                       stylesheets="@style.css" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="DejaVu Sans" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="currentPressureForTargetCity" styleClass="text-label"
+                                                       stylesheets="@style.css" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="DejaVu Sans" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="currentDayNextHoursDataForTargetCity" alignment="CENTER_RIGHT"
+                                      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                                      minWidth="-Infinity" prefHeight="120.0" prefWidth="484.0" spacing="6.0">
+                                    <VBox.margin>
+                                        <Insets bottom="40.0"/>
+                                    </VBox.margin>
+                                </HBox>
+                                <Separator opacity="0.5" prefWidth="200.0"/>
+                            </children>
+                        </VBox>
+                        <GridPane fx:id="nextDaysDataForTargetCity" alignment="CENTER" vgap="25.0"
+                                  GridPane.rowIndex="1">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308"
+                                                   minWidth="-Infinity" prefWidth="335.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <GridPane.margin>
+                                <Insets bottom="20.0" top="-45.0"/>
+                            </GridPane.margin>
+                        </GridPane>
+                    </children>
+                </GridPane>
+            </content>
+        </ScrollPane>
+    </children>
+</GridPane>
